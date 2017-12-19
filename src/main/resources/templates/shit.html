@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Hi, Dear!</title>
+</head>
+<body>
+<h1 th:inline="text">User</h1>
+<span th:text="${user.name}"></span>
+<span th:text="${user.description}"></span>
+<span th:text="${user.getDescription()}"></span>
+<pre>
+    <!--这些是用于velocity，然而springboot已经不支持，所以换着使用thymeleaf功能-->
+    <!--colors: $!{colors}-->
+    <!--#foreach($color in $colors)-->
+        <!--This is Color: $color, $!{foreach.index}, $!{foreach.count}-->
+    <!--#end-->
+
+    <!--#foreach($key in $map.keySet())-->
+        <!--Number: $key, Value: $map.get($key)-->
+    <!--#end-->
+
+    <!--#parse("header.html")-->
+    <!--#macro (render_color, $index, $color)-->
+        <!--Color Render Macro $index, $color-->
+    <!--#end-->
+
+    <!--#foreach($color in $colors)-->
+        <!--#render_color($foreach index, $color) velocity的函数调用，上方函数这里调用。（宏）-->
+    <!--#end-->
+
+    <!--#set($hello = "hello")-->
+    <!--#set($helloworld1 = "$!{hello} world")-->
+    <!--$!hello-->
+    <!--$helloworld1      变量和字符串连接。-->
+</pre>
+<!--<h1 th:inline = &!{topicPage}></h1>-->
+<!--<h2 th:inline = &!{pagename}></h2>-->
+
+<!--<h1 th:inline="text">Hello.v.2</h1>-->
+<!--<h2 th:text="$!{topicPage}"></h2>-->
+</body>
+</html>
